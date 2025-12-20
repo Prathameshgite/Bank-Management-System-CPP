@@ -59,7 +59,7 @@ On Windows PowerShell:
 
 .\bank
 
-🧪 Sample Menu
+🧪 Sample Menu :
 
 ===== BANK MANAGEMENT SYSTEM =====
 
