@@ -1,0 +1,8 @@
+# Executables
+*.exe
+
+# Data files
+bank.dat
+
+# VS Code settings
+.vscode/
