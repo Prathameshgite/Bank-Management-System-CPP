@@ -81,8 +81,7 @@ Split code into header (.h) and source (.cpp) files
 
 Authentication using PIN
 
-👤 Author
-
+👤 Author :
 Prathamesh Gite
 
 📌 Note
