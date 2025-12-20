@@ -69,7 +69,7 @@ Display All Accounts
 
 Exit
 
-🚀 Future Enhancements
+🚀 Future Enhancements :
 
 Search account by account number
 
