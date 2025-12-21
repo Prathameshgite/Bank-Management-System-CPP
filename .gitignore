@@ -6,3 +6,4 @@ bank.dat
 
 # VS Code settings
 .vscode/
+*.dat
