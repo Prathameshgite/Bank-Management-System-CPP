@@ -36,7 +36,7 @@ Menu-driven programs
 
 Git & GitHub
 
-📂 Project Structure
+📂 Project Structure :
 
 BMS/
 ├── main.cpp
