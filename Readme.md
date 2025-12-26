@@ -84,7 +84,7 @@ Authentication using PIN
 👤 Author :
 Prathamesh Gite
 
-📌 Note
+📌 Note :
 
 Binary files depend on the exact class structure.
 If class members are modified, previously created .dat files should be deleted to avoid corrupted reads.
