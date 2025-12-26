@@ -1,10 +1,11 @@
+
 🏦 Bank Management System (C++)
----------------------------------
+main
 A menu-driven Bank Management System implemented in C++, designed to demonstrate core programming concepts such as Object-Oriented Programming (OOP), file handling, and robust input validation.
 
 This application allows users to create bank accounts, store them persistently using files, and display all saved accounts through a console-based interface.
 
-✨ Features
+✨ Features :
 
 Create bank accounts
 
@@ -18,7 +19,7 @@ Strong input validation to prevent crashes and infinite loops
 
 Clean and beginner-friendly code structure
 
-🛠️ Technologies & Concepts Used
+🛠️ Technologies & Concepts Used :
 
 C++
 
@@ -84,7 +85,7 @@ Authentication using PIN
 👤 Author :
 Prathamesh Gite
 
-📌 Note
+📌 Note :
 
 Binary files depend on the exact class structure.
 If class members are modified, previously created .dat files should be deleted to avoid corrupted reads.
