@@ -1,4 +1,4 @@
-🏦 Bank Management System (C++)
+🏦 Bank Management System (C++).
 
 A menu-driven Bank Management System implemented in C++, designed to demonstrate core programming concepts such as Object-Oriented Programming (OOP), file handling, and robust input validation.
 
