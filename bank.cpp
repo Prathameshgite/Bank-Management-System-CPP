@@ -1,4 +1,9 @@
-#include "Bank.h"
+#include "bank.h"
+#include <functional>
+#include <cstring>
+#include <iomanip>
+
+
 
 void Bank::createAccount() {
     cout << "\nEnter Account Number: ";
@@ -19,12 +24,17 @@ void Bank::createAccount() {
         cin.ignore(10000, '\n');
     }
 
+    int pin;
     cout << "Set 4-digit PIN: ";
     while (!(cin >> pin) || pin < 1000 || pin > 9999) {
-        cout << "Invalid PIN! Enter 4 digits: ";
-        cin.clear();
-        cin.ignore(10000, '\n');
+    cout << "Invalid PIN! Enter 4 digits: ";
+    cin.clear();
+    cin.ignore(10000, '\n');
     }
+
+    hash<int> hasher;
+    pinHash = hasher(pin);
+
 
     isDeleted = false;
     deletedAt = 0;
@@ -43,7 +53,8 @@ long long Bank::getAccNo() const {
 }
 
 bool Bank::authenticate(int enteredPin) const {
-    return pin == enteredPin && !isDeleted;
+    hash<int> hasher;
+    return pinHash == hasher(enteredPin) && !isDeleted;
 }
 
 void Bank::deposit(double amt) {
@@ -145,7 +156,10 @@ void Bank::depositMoney(long long acc) {
         if (b.accNo == acc && !b.isDeleted) {
             cout << "Enter amount: ";
             cin >> amt;
+
             b.deposit(amt);
+            logTransaction(acc, "Deposit", amt);
+
             found = true;
         }
         out.write((char*)&b, sizeof(b));
@@ -156,8 +170,10 @@ void Bank::depositMoney(long long acc) {
     remove("bank.dat");
     rename("temp.dat", "bank.dat");
 
-    if (!found) cout << "\nAccount not found.\n";
+    if (!found)
+        cout << "\nAccount not found.\n";
 }
+
 
 void Bank::withdrawMoney(long long acc) {
     int enteredPin;
@@ -180,6 +196,8 @@ void Bank::withdrawMoney(long long acc) {
     }
 
     saveAll(b);
+    logTransaction(acc, "Withdraw", amt);
+
     cout << "\nWithdrawal successful.\n";
 }
 
@@ -230,4 +248,38 @@ void Bank::recycleBin() {
 
     in.close();
     if (!any) cout << "\nRecycle Bin empty.\n";
+}
+
+void Bank::logTransaction(long long acc, const char* type, double amount) {
+    Transaction t;
+    t.accNo = acc;
+    strcpy(t.type, type);
+    t.amount = amount;
+    t.timestamp = time(nullptr);
+
+    ofstream out("transactions.dat", ios::binary | ios::app);
+    out.write((char*)&t, sizeof(t));
+    out.close();
+}
+
+void Bank::showMiniStatement(long long acc) {
+    Transaction t;
+    ifstream in("transactions.dat", ios::binary);
+    bool any = false;
+
+    cout << "\n--- Mini Statement ---\n";
+
+    while (in.read((char*)&t, sizeof(t))) {
+        if (t.accNo == acc) {
+            tm* tm_info = localtime(&t.timestamp);
+            cout << put_time(tm_info, "%d-%m-%Y %H:%M") << "  ";
+            cout << setw(8) << t.type << "  ₹" << t.amount << endl;
+            any = true;
+        }
+    }
+
+    in.close();
+
+    if (!any)
+        cout << "No transactions found.\n";
 }

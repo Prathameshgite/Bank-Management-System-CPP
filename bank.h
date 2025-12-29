@@ -8,12 +8,19 @@
 
 using namespace std;
 
+struct Transaction {
+    long long accNo;
+    char type[10];
+    double amount;
+    time_t timestamp;
+};
+
 class Bank {
 private:
     long long accNo;
     char name[50];
     double balance;
-    int pin;
+    size_t pinHash;
     bool isDeleted;
     time_t deletedAt;
 
@@ -41,6 +48,9 @@ public:
     static void deleteAccount(long long acc);
     static void restoreAccount(long long acc);
     static void recycleBin();
+    static void logTransaction(long long acc, const char* type, double amount);
+    static void showMiniStatement(long long acc);
+
 };
 
 #endif
