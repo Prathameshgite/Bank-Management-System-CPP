@@ -47,7 +47,7 @@ Generated files such as .exe and .dat are excluded using .gitignore.
 
 ▶️ How to Compile and Run
 
-Compile the program using:
+Compile the program using
 
 g++ main.cpp -o bank -mconsole
 
