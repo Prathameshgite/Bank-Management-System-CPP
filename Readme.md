@@ -94,7 +94,6 @@ If class members are modified, previously created .dat files should be deleted t
 Run the following commands in your project folder:
 
 git add README.md
-
 git commit -m "Add professional README"
 
 git push
