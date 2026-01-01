@@ -43,7 +43,7 @@ BMS/
 ├── README.md
 └── .gitignore
 
-Generated files such as .exe and .dat are excluded using .gitignore.
+Generated files such as .exe and .dat are excluded using .gitignore
 
 ▶️ How to Compile and Run
 
