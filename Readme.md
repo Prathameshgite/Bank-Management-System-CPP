@@ -44,7 +44,6 @@ BMS/
 └── .gitignore
 
 Generated files such as .exe and .dat are excluded using .gitignore
-
 ▶️ How to Compile and Run
 
 Compile the program using
