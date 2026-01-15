@@ -10,7 +10,6 @@ Create bank accounts
 
 
 
-
 Persistent data storage using binary file handling
 
 Display all stored accounts
