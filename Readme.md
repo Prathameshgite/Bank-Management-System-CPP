@@ -5,7 +5,6 @@ A menu-driven Bank Management System implemented in C++, designed to demonstrate
 This application allows users to create bank accounts, store them persistently using files, and display all saved accounts through a console-based interface.
 
 ✨ Features :
-
 Create bank accounts
 
 Persistent data storage using binary file handling
