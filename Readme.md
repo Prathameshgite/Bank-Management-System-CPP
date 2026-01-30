@@ -16,7 +16,6 @@ Display all stored accounts
 Menu-driven console interface
 
 Strong input validation to prevent crashes and infinite loops
-
 Clean and beginner-friendly code structure
 
 🛠️ Technologies & Concepts Used :
